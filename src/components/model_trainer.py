@@ -88,7 +88,7 @@ class ModelTrainer:
                                              models=models,param=params)
             
             ## To get best model score from dict
-            best_model_score = max((model_report.values()))
+            best_model_score = max(model_report.values())
 
             ## To get best model name from dict
 
@@ -110,11 +110,6 @@ class ModelTrainer:
             predicted=best_model.predict(X_test)
 
             r2_square = r2_score(y_test, predicted)
-            return r2_square
-            
-
-
-
-            
+            return r2_square     
         except Exception as e:
             raise CustomException(e,sys)
