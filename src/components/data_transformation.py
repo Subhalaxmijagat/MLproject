@@ -49,7 +49,7 @@ class DataTransformation:
 
                 steps=[
                 ("imputer",SimpleImputer(strategy="most_frequent")),
-                ("one_hot_encoder",OneHotEncoder()),
+                ("one_hot_encoder",OneHotEncoder(handle_unknown="ignore")),
                 ("scaler",StandardScaler(with_mean=False))
                 ]
 
@@ -61,7 +61,7 @@ class DataTransformation:
             preprocessor=ColumnTransformer(
                 [
                 ("num_pipeline",num_pipeline,numerical_columns),
-                ("cat_pipelines",cat_pipeline,categorical_columns)
+                ("cat_pipeline",cat_pipeline,categorical_columns)
 
                 ]
             )
